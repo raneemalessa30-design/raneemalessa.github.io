@@ -50,77 +50,384 @@
     a{ color: var(--primary); text-decoration:none; }
     a:hover{ text-decoration:underline; }
 
-    /* ====== Navbar ====== */
-    .navbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      margin-bottom:22px;
-      gap:16px;
-    }
-
-    .nav-brand{
-      display:flex;
-      align-items:center;
-      gap:8px;
-      font-weight:600;
-      color:var(--primary);
-      font-size:15px;
-    }
-
-    .nav-brand-mark{
-      width:24px;
-      height:24px;
-      border-radius:9px;
-      background:radial-gradient(circle at 30% 20%, #FBE9D7, #DBC6AF);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:13px;
-    }
-
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      font-size:13px;
-      flex-wrap:wrap;
-    }
-
-    .nav-links a{
-      color:var(--muted);
-      text-decoration:none;
-    }
-
-    .nav-links a:hover{
-      color:var(--primary);
-    }
-
-    /* زر عام */
-    .btn-primary{
-      padding:7px 14px;
-      border-radius:999px;
-      border:none;
-      background:var(--primary);
-      color:#FFFFFF;
-      font-size:12px;
-      cursor:pointer;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-    }
-
-    .btn-primary:hover{
-      opacity:0.93;
-    }
-
-    /* ====== Hero & general layout ====== */
+    /* ====== Layout ====== */
     header{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
       margin-bottom:32px;
     }
 
-    .hero-wrap{
-      display:flex;
-      flex-direction:co
+    @media (min-width: 768px){
+      header{
+        flex-direction:row;
+        align-items:center;
+        justify-content:space-between;
+      }
+    }
 
+    .hero-text{
+      max-width:560px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 12px;
+      border-radius:999px;
+      background:rgba(201,162,122,0.12);
+      color:var(--accent);
+      font-size:13px;
+      margin-bottom:10px;
+    }
+
+    .badge-dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:var(--accent);
+    }
+
+    h1{
+      font-size:24px;
+      color:var(--primary);
+      margin-bottom:6px;
+    }
+
+    @media (min-width:768px){
+      h1{ font-size:30px; }
+    }
+
+    .subtitle{
+      font-size:14px;
+      color:var(--muted);
+      margin-bottom:14px;
+    }
+
+    .hero-p{
+      font-size:15px;
+      max-width:480px;
+    }
+
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px 16px;
+      font-size:13px;
+      color:var(--muted);
+      margin-top:12px;
+    }
+
+    .hero-meta span::before{
+      content:"• ";
+      color:var(--accent);
+      margin-left:4px;
+    }
+
+    .hero-avatar{
+      align-self:flex-start;
+    }
+
+    .avatar-circle{
+      width:110px;
+      height:110px;
+      border-radius:50%;
+      background: radial-gradient(circle at 30% 20%, #FBE9D7, #DBC6AF);
+      border:4px solid #F7F3EC;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:40px;
+      font-weight:600;
+      color:var(--primary);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+    }
+
+    /* ====== Sections ====== */
+    section{
+      margin-bottom:28px;
+    }
+
+    .section-title{
+      font-size:15px;
+      font-weight:600;
+      color:var(--primary);
+      margin-bottom:10px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .section-title span{
+      width:18px;
+      height:2px;
+      background:var(--accent);
+      border-radius:999px;
+    }
+
+    .section-note{
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:10px;
+    }
+
+    /* About */
+    .about-text{
+      font-size:14px;
+      color:var(--text);
+    }
+
+    /* Skills */
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .chip{
+      padding:6px 10px;
+      border-radius:999px;
+      background:#F4E8DB;
+      font-size:12px;
+      color:var(--primary);
+      border:1px solid rgba(0,0,0,0.03);
+    }
+
+    /* Projects */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+
+    @media (min-width: 768px){
+      .projects-grid{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .project-card{
+      background:#FBF7F2;
+      border-radius:var(--radius);
+      padding:14px 14px 16px;
+      border:1px solid rgba(0,0,0,0.02);
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .project-label{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      color:var(--muted);
+    }
+
+    .project-title{
+      font-size:14px;
+      font-weight:600;
+      color:var(--primary);
+    }
+
+    .project-desc{
+      font-size:13px;
+      color:var(--text);
+    }
+
+    .project-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      margin-top:4px;
+    }
+
+    .tag{
+      font-size:11px;
+      padding:4px 8px;
+      border-radius:999px;
+      background:#FFFFFF;
+      border:1px solid #E3D5C4;
+      color:var(--muted);
+    }
+
+    .project-link{
+      margin-top:6px;
+      font-size:12px;
+    }
+
+    /* Contact */
+    .contact-box{
+      background:#FDF9F4;
+      border-radius:var(--radius);
+      padding:14px 14px 16px;
+      border:1px dashed #E3D5C4;
+      font-size:13px;
+    }
+
+    .contact-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px 18px;
+      margin-top:8px;
+    }
+
+    .contact-item{
+      font-size:13px;
+    }
+
+    .contact-label{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:8px;
+      font-size:11px;
+      color:var(--muted);
+      text-align:center;
+    }
+
+  </style>
+</head>
+<body>
+  <main class="page">
+    <!-- ====== Hero ====== -->
+    <header>
+      <div class="hero-text">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          جاهزة أضيف هدوء وتنظيم لتجاربك الرقمية
+        </div>
+        <h1>رنيم العيسى · UX/UI Designer</h1>
+        <p class="subtitle">Crafting calm, human-centered interfaces for e-commerce & digital products.</p>
+        <p class="hero-p">
+          مصممة تجربة مستخدم وواجهات من السعودية، بخلفية في التجارة الإلكترونية.
+          أحب أصمّم تجارب أنيقة، بسيطة، وتخدم الهدف التجاري بدون ما تغلّب المستخدم.
+        </p>
+        <div class="hero-meta">
+          <span>Google UX Design</span>
+          <span>E-commerce background</span>
+          <span>Based in Saudi Arabia</span>
+        </div>
+      </div>
+      <div class="hero-avatar">
+        <div class="avatar-circle">
+          R
+        </div>
+      </div>
+    </header>
+
+    <!-- ====== About ====== -->
+    <section id="about">
+      <div class="section-title">
+        <span></span>
+        عنّي
+      </div>
+      <p class="about-text">
+        أركز على تحويل الأفكار المعقدة إلى تجارب استخدام بسيطة، مريحة، وتليق بالبراند.
+        أؤمن أن التصميم الممتاز مو بس شكل جميل، بل رحلة مستخدم واضحة من أول زيارة إلى لحظة الشراء أو الإنجاز.
+        حاليًا أعمل على بناء بورتفوليو يدمج بين التجارة الإلكترونية، تصميم الواجهات، وفهم سلوك المستخدم.
+      </p>
+    </section>
+
+    <!-- ====== Skills ====== -->
+    <section id="skills">
+      <div class="section-title">
+        <span></span>
+        المهارات والتركيز
+      </div>
+      <p class="section-note">مجالات أرتاح وأبدع فيها أكثر:</p>
+      <div class="chips">
+        <div class="chip">UX Research (interviews, flows)</div>
+        <div class="chip">Wireframing & Prototyping</div>
+        <div class="chip">UI Design for E-commerce</div>
+        <div class="chip">Information Architecture</div>
+        <div class="chip">Figma · Design Systems</div>
+        <div class="chip">Landing Pages & Conversion</div>
+      </div>
+    </section>
+
+    <!-- ====== Projects ====== -->
+    <section id="projects">
+      <div class="section-title">
+        <span></span>
+        مشاريع مختارة
+      </div>
+      <p class="section-note">
+        عيّنات مبدئية – لاحقًا تقدرين تضيفين روابط تفصيلية لكل دراسة حالة (Case Study) في Behance أو Figma.
+      </p>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-label">Case Study · E-commerce</div>
+          <h3 class="project-title">Nawa – mindful home décor store</h3>
+          <p class="project-desc">
+            إعادة تصميم تجربة متجر إلكتروني لمنتجات هادئة للمنزل،
+            مع تركيز على سهولة التصفح، تقليل التشتت، وتوضيح قيمة كل منتج للمستخدم.
+          </p>
+          <div class="project-tags">
+            <span class="tag">UX Flows</span>
+            <span class="tag">UI Kit</span>
+            <span class="tag">Responsive Design</span>
+          </div>
+          <!-- لو صار عندك رابط حطيه هنا -->
+          <!-- <p class="project-link"><a href="#" target="_blank">View case study ↗</a></p> -->
+        </article>
+
+        <article class="project-card">
+          <div class="project-label">Concept · Service Website</div>
+          <h3 class="project-title">R for Service – CV & Career support</h3>
+          <p class="project-desc">
+            تصميم صفحة هبوط لخدمة إلكترونية تساعد الباحثين عن عمل في الحصول على سيرة ذاتية واضحة،
+            مع رحلة مستخدم بسيطة من التعرف على الخدمة إلى إرسال الطلب.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Landing Page</span>
+            <span class="tag">Copywriting</span>
+            <span class="tag">Form UX</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== Contact ====== -->
+    <section id="contact">
+      <div class="section-title">
+        <span></span>
+        تواصل
+      </div>
+      <div class="contact-box">
+        <p>
+          مهتم/ة نتعاون في مشروع، متجر إلكتروني، أو تجربة رقمية جديدة؟
+          يسعدني أسمع عن فكرتك ونشوف كيف نطلع لها بتجربة استخدام أنيقة ومرتّبة.
+        </p>
+
+        <div class="contact-row">
+          <div class="contact-item">
+            <div class="contact-label">البريد الإلكتروني</div>
+            <a href="mailto:your.email@example.com">your.email@example.com</a>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">LinkedIn</div>
+            <a href="https://www.linkedin.com" target="_blank">linkedin.com/in/raneem-alessa</a>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Behance / Portfolio</div>
+            <span>قريبًا</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> رنيم العيسى · تصميم وتجربة مستخدم
+    </footer>
+  </main>
+
+  <script>
+    // سنة تلقائية في الفوتر
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
