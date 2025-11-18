@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>عرض خدمات تصميم وتحسين متاجر سلة - رنيم العيسى</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- خط تاجوال -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0D2030;
+      --cream: #F6F2EA;
+      --gold: #C9A227;
+      --muted: #6B6B6B;
+      --card-bg: #FFFFFF;
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Tajawal", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #ffffff 0, #f6f2ea 40%, #f1ebe0 100%);
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 32px auto 48px;
+      padding: 0 16px 32px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 32px;
+      box-shadow: var(--shadow-soft);
+      padding: 32px 24px;
+      border: 1px solid rgba(13, 32, 48, 0.06);
+      backdrop-filter: blur(6px);
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .logo-wrap {
+      width: 90px;
+      height: 90px;
+      border-radius: 999px;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 30px rgba(13, 32, 48, 0.22);
+      border: 2px solid rgba(13, 32, 48, 0.2);
+    }
+
+    .logo-wrap img {
+      width: 70%;
+      height: auto;
+      display: block;
+    }
+
+    .head-text h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .head-text h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .head-text p {
+      font-size: 0.95rem;
+      color: var(--navy);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(201, 162, 39, 0.08);
+      color: var(--gold);
+      font-size: 0.78rem;
+      margin-top: 6px;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .section {
+      margin-top: 28px;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span {
+      width: 8px;
+      height: 22px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, var(--gold), #f3cf54);
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .package {
+      background: linear-gradient(135deg, #ffffff, #fbf6ea);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(13, 32, 48, 0.06);
+      padding: 18px 16px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .package::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: -40px;
+      inset-block-start: -40px;
+      width: 80px;
+      height: 80px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(201, 162, 39, 0.14), transparent 60%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .package-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .package-name {
+      font-size: 0.97rem;
+      font-weight: 700;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(13, 32, 48, 0.06);
+      color: var(--navy);
+    }
+
+    .package-price {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 4px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .package-price span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .package ul {
+      margin: 4px 0 0;
+      padding-inline-start: 18px;
+      position: relative;
+      z-index: 1;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .package ul li + li {
+      margin-top: 3px;
+    }
+
+    .highlight {
+      border: 1px solid rgba(201, 162, 39, 0.7);
+      box-shadow: 0 16px 38px rgba(201, 162, 39, 0.16);
+    }
+
+    .hint {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .notes {
+      background: #0d2030;
+      color: #ffffff;
+      border-radius: 26px;
+      padding: 20px 18px;
+      margin-top: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .notes::before {
+      content: "";
+      position: absolute;
+      inset-inline-end: -60px;
+      inset-block-start: -40px;
+      width: 140px;
+      height: 140px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(201, 162, 39, 0.6), transparent 60%);
+      opacity: 0.6;
+    }
+
+    .notes h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .notes ul {
+      font-size: 0.85rem;
+      list-style: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .notes ul li::before {
+      content: "•";
+      margin-inline-start: 6px;
+      color: #f7e4a5;
+    }
+
+    .notes ul li + li {
+      margin-top: 4px;
+    }
+
+    .contact {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #ffffff;
+      color: var(--navy);
+      font-size: 0.9rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .whats-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 6px;
+      border: 1px solid rgba(13, 32, 48, 0.16);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      background: rgba(13, 32, 48, 0.03);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 18px;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <!-- الغلاف / الهيدر -->
+      <header>
+        <div class="logo-wrap">
+          <!-- غيري مسار الصورة حسب اسم ملف اللوقو -->
+          <img src="logo.png" alt="شعار رنيم العيسى">
+        </div>
+        <div class="head-text">
+          <h1>عرض خدمات تصميم وتحسين متاجر سلة</h1>
+          <h2>رنيم العيسى — Raneem Alessa</h2>
+          <p>تصميم واجهات وتجارب استخدام تركّز على البساطة والهوية والوضوح.</p>
+          <div class="pill">
+            <span class="pill-dot"></span>
+            <span>UX/UI • متاجر سلة • تجربة مستخدم</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- باقات UX/UI -->
+      <section class="section">
+        <h2 class="section-title">
+          <span></span>
+          باقات تصميم تجربة وواجهة المستخدم (Figma فقط)
+        </h2>
+        <p class="section-subtitle">
+          هذه الباقات مخصصة لتصميم وتحسين واجهات المتجر بدون تنفيذ داخل منصة سلة.
+        </p>
+
+        <div class="grid grid-2">
+          <article class="package">
+            <div class="package-header">
+              <div class="package-name">1. مراجعة تجربة المستخدم</div>
+            </div>
+            <div class="package-price">500 ر.س <span>/ مرة واحدة</span></div>
+            <ul>
+              <li>تحليل ٣ صفحات أساسية (الرئيسية، صفحة منتج، صفحة إتمام الطلب).</li>
+              <li>تقرير مكتوب باقتراحات واضحة لتحسين تجربة المستخدم.</li>
+              <li>مناسب للمتاجر القائمة التي تحتاج “عين خبيرة”.</li>
+            </ul>
+          </article>
+
+          <article class="package">
+            <div class="package-header">
+              <div class="package-name">2. تحسين واجهة المتجر</div>
+            </div>
+            <div class="package-price">700 ر.س <span>/ مرة واحدة</span></div>
+            <ul>
+              <li>إعادة ترتيب العناصر البصرية في الصفحة الرئيسية.</li>
+              <li>اقتراح ألوان وخطوط تتماشى مع هوية العلامة.</li>
+              <li>تسليم ملف Figma جاهز للتنفيذ من طرف المطوّر أو صاحب المتجر.</li>
+            </ul>
+          </article>
+
+          <article class="package">
+            <div class="package-header">
+              <div class="package-name">3. إعادة تصميم واجهة كاملة</div>
+            </div>
+            <div class="package-price">900 ر.س <span>/ مشروع</span></div>
+            <ul>
+              <li>تصميم جديد للصفحة الرئيسية + صفحة فئة + صفحة منتج.</li>
+              <li>نسخ مهيأة للجوال والكمبيوتر (Mobile + Desktop).</li>
+              <li>مناسب للمتاجر التي تريد شكل وهوية واضحة ومتناسقة.</li>
+            </ul>
+          </article>
+
+          <article class="package highlight">
+            <div class="package-header">
+              <div class="package-name">4. تجربة مستخدم كاملة (UX Strategy + UI)</div>
+              <span class="badge">الأكثر شمولًا</span>
+            </div>
+            <div class="package-price">3,000 ر.س <span>/ مشروع</span></div>
+            <ul>
+              <li>فهم سريع للجمهور وأهداف المتجر من خلال استبيان وجلسة تعريفية.</li>
+              <li>رسم رحلة العميل وتخطيط بنية الصفحات (Site Map &amp; Flow).</li>
+              <li>Wireframes + تصميم واجهات نهائية للصفحات الأساسية على Figma.</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="hint">
+          ❊ جميع الباقات أعلاه خاصة بالتصميم والتوجيه فقط، ولا تشمل تنفيذ التعديلات داخل لوحة تحكم سلة.
+        </p>
+      </section>
+
+      <!-- باقات سلة -->
+      <section class="section">
+        <h2 class="section-title">
+          <span></span>
+          باقات إعداد وتصميم متاجر سلة (تصميم + تنفيذ)
+        </h2>
+        <p class="section-subtitle">
+          هنا أعمل على ضبط إعدادات المتجر داخل سلة وترتيب الأقسام ورفع المنتجات، بدون تصميم بنرات إعلانية أو تصوير منتجات.
+        </p>
+
+        <div class="grid grid-2">
+          <article class="package">
+            <div class="package-header">
+              <div class="package-name">1. إطلاق المتجر الأساسي</div>
+            </div>
+            <div class="package-price">500 ر.س <span>/ متجر جديد</span></div>
+            <ul>
+              <li>إنشاء المتجر وضبط الإعدادات الأساسية.</li>
+              <li>تفعيل بوابات الدفع والشحن (حسب بيانات التاجر).</li>
+              <li>رفع حتى ١٠ منتجات بصور جاهزة وتنسيق الوصف.</li>
+            </ul>
+          </article>
+
+          <article class="package">
+            <div class="package-header">
+              <div class="package-name">2. باقة متجر جاهز للبيع</div>
+            </div>
+            <div class="package-price">900 ر.س <span>/ متجر</span></div>
+            <ul>
+              <li>تنظيم الأقسام والتصنيفات داخل المتجر.</li>
+              <li>رفع حتى ٣٠ منتج مع تنسيق البيانات الأساسية.</li>
+              <li>إعداد صفحات ثابتة أساسية (من نحن، سياسة الاسترجاع… إلخ).</li>
+            </ul>
+          </article>
+
+          <article class="package">
+            <div class="package-header">
+              <div class="package-name">3. متجر بعلامة تجارية</div>
+            </div>
+            <div class="package-price">1,200 ر.س <span>/ متجر</span></div>
+            <ul>
+              <li>تخصيص أعمق لهيكل الصفحات بما يتماشى مع هوية المشروع.</li>
+              <li>رفع حتى ٦٠ منتج وترتيب التصنيفات والخيارات.</li>
+              <li>تحسين مسار الشراء وتجربة التصفح داخل القالب المتاح.</li>
+            </ul>
+          </article>
+
+          <article class="package highlight">
+            <div class="package-header">
+              <div class="package-name">4.دعم وتطوير شهرية (VIP)</div>
+              <span class="badge">دعم مستمر</span>
+            </div>
+            <div class="package-price">3,050 ر.س <span>/ شهر</span></div>
+            <ul>
+              <li>متابعة وتحسينات أسبوعية على المتجر بناءً على الأداء.</li>
+              <li>تعديلات على ترتيب الصفحات والمنتجات حسب النتائج.</li>
+              <li>استشارات دورية لتطوير تجربة المستخدم وزيادة المبيعات.</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="hint">
+          ❊ الباقات لا تشمل: تصميم بنرات تسويقية، أو حملات إعلانية، أو تصوير وكتابة محتوى من الصفر للمنتجات.
+        </p>
+      </section>
+
+      <!-- الملاحظات وطرق التعامل -->
+      <section class="section">
+        <div class="notes">
+          <h3>ملاحظات عامة وشروط العمل</h3>
+          <ul>
+            <li>مدة التنفيذ تختلف حسب الباقة، وتتراوح عادة بين ٤ إلى ١٤ يوم عمل.</li>
+            <li>يشمل السعر جولة تعديلات واحدة أساسية، بدون تغيير كامل لفكرة التصميم.</li>
+            <li>يتم دفع ٥٠٪ مقدّمًا و٥٠٪ عند التسليم النهائي.</li>
+             <li>الأسعار قابلة للتعديل حسب ما يناسب حجم المشروع واحتياجاته،
+ويمكن تقديم خطة وسعر مخصص بعد مناقشة التفاصيل.</li>
+          </ul>
+
+          <div class="contact">
+            <div class="contact-label">للاستفسار وطلب عرض مخصص:</div>
+            <div class="contact-pill">
+              <span class="whats-icon"> 
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+       viewBox="0 0 32 32" fill="#25D366">
+    <path d="M16.004 3.2c-7.042 0-12.8 5.706-12.8 12.706 0 2.242.579 4.416 1.686 6.362L3.2 28.8l6.77-1.754c1.88.99 3.988 1.514 6.034 1.514h.004c7.042 0 12.8-5.706 12.8-12.706s-5.758-12.654-12.804-12.654zm6.958 18.266c-.292.82-1.708 1.6-2.4 1.708-.62.094-1.416.134-2.292-.143-.528-.166-1.204-.393-2.07-.77-3.648-1.582-6.024-5.206-6.21-5.453-.186-.246-1.482-1.972-1.482-3.77s.94-2.654 1.274-3.01c.334-.356.734-.446.98-.446.246 0 .49.004.706.014.226.01.53-.086.83.634.292.7.994 2.416 1.082 2.594.088.178.15.392.03.638-.118.246-.178.392-.35.608-.178.21-.374.47-.53.63-.178.178-.364.374-.156.73.208.356.928 1.528 1.994 2.47 1.372 1.18 2.528 1.548 2.88 1.724.354.178.558.148.754-.088.196-.236.87-1.01 1.102-1.356.226-.338.46-.284.764-.168.31.118 1.96.924 2.296 1.092.334.168.556.246.638.382.082.142.082.824-.21 1.65z"/>
+  </svg>
+</span>
+
+              <span>واتساب: +966 532386027</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        هذا العرض للاستخدام المهني فقط ويمكن تعديله بحسب احتياج كل مشروع.
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
